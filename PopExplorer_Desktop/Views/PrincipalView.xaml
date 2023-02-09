@@ -1,0 +1,476 @@
+﻿<Window x:Class="PopExplorer_Desktop.Views.PrincipalView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PopExplorer_Desktop.Views"
+        xmlns:vm="clr-namespace:PopExplorer_Desktop.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontFamily="Segoe UI"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="24"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Pop Explorer" Height="600" Width="1050">
+
+    <Window.DataContext>
+        <vm:PrincipalViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Panel de búsqueda -->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Pop To Search -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>                    
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0"
+                     Text="{Binding PopToSearch, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Pop" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"  
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center">
+
+
+                    <!-- Definición de Eventos  -->
+                    <!--
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding BuscarPopCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                -->
+                </TextBox>
+
+                <Button Grid.Column="1"                        
+                        Style="{DynamicResource MaterialDesignToolButton}"
+                        Command="{Binding BuscarPopCommand}" >
+                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                </Button>
+
+                <Button Grid.Column="2"                        
+                        Style="{DynamicResource MaterialDesignToolButton}"
+                        Command="{Binding LimpiarPopToSeearchCommand}">
+                    <materialDesign:PackIcon Kind="Eraser" Opacity=".56" Foreground="#0066C5"  />
+                </Button>
+
+            </Grid>
+                        
+            
+            
+            <!-- Search Table -->
+            <DataGrid Grid.Row="1"
+                      ItemsSource="{Binding Pops, Mode=OneWay}"
+                      SelectedItem="{Binding CurrentPop}"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      AutoGenerateColumns="False">
+
+                <!-- Definición de Columnas -->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
+                    <DataGridTextColumn Header="Prioridad" Binding="{Binding Prioridad}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </Grid>
+
+        <!-- Panel de Datos -->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                     Text="{Binding CurrentPop.Nombre, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Pop" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.Coordinador, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Coordinador" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.Supervisor, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Supervisor" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.Prioridad, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Prioridad" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.ClienteAltoValor, Mode=Default}"
+                     materialDesign:HintAssist.Hint="¿Cliente Alto Valor?" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.Servicios, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Servicios" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                     Text="{Binding CurrentPop.PopPrioridadServicios, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Pop Prioridad y Servicios" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.ProveedorDeMantenimiento, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Contrata" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+                     Text="{Binding CurrentPop.DepartamentoProvinciaDistrito, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Dep / Prov / Dist" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+                     Text="{Binding CurrentPop.Direccion, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Dirección" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.Latitud, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Latitud" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Right"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.Longitud, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Longitud" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Right"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.LatitudLongitud, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Latitud,Longitud" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Right"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.CoubicadorFinal, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Coubicador" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
+                     Text="{Binding CurrentPop.NombreSitioCoubicante, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Sitio Coubicante" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.TipoEstacion, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Tipo Estación" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.TipoTorre, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Tipo Torre" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.UbicacionEquipos, Mode=OneWay}" 
+                     materialDesign:HintAssist.Hint="Ubicación de equipos" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+        </Grid>
+
+        </Grid>
+</Window>
