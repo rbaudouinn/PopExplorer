@@ -49,7 +49,7 @@ namespace PopExplorer.Lib.DataAccess
             bool flagNumberParse;
             Pop pop;
 
-            string nombre; string estado; string prioridad; string clienteAltoValor; string direccion; 
+            string nombre; string estado; string prioridad; string tipoClienteFija; string clienteAltoValor; string direccion; 
             string departamento; string provincia; string distrito; string zona; double latitud; double longitud; 
             string tipoTorre; double alturaTorre; string tipoEstacion; double alturaEdificacion; string coubicadorFinal; 
             string nombreSitioCoubicador; string operadorCoubicado; string nombreSitioCoubicante; string codigoCoubicador; 
@@ -69,6 +69,7 @@ namespace PopExplorer.Lib.DataAccess
                 nombre = sLDocument.GetCellValueAsString(i + 2, 2);
                 estado = sLDocument.GetCellValueAsString(i + 2, 3);
                 prioridad = sLDocument.GetCellValueAsString(i + 2, 4);
+                tipoClienteFija = sLDocument.GetCellValueAsString(i + 2, 6);
                 clienteAltoValor = sLDocument.GetCellValueAsString(i + 2, 7);
                 direccion = sLDocument.GetCellValueAsString(i + 2, 8);
                 departamento = sLDocument.GetCellValueAsString(i + 2, 11);
@@ -126,7 +127,7 @@ namespace PopExplorer.Lib.DataAccess
                 supervisor = sLDocument.GetCellValueAsString(i + 2, 98);
                 coordinador = sLDocument.GetCellValueAsString(i + 2, 99);
 
-                pop = new Pop(nombre, estado, prioridad, clienteAltoValor, direccion, departamento, provincia, distrito, zona,
+                pop = new Pop(nombre, estado, prioridad, tipoClienteFija, clienteAltoValor, direccion, departamento, provincia, distrito, zona,
                               latitud, longitud, tipoTorre, alturaTorre, tipoEstacion, alturaEdificacion, coubicadorFinal, nombreSitioCoubicador,
                               operadorCoubicado, nombreSitioCoubicante, codigoCoubicador, ubicacionEquipos, agregador, preAgregador, proveedorDeMantenimiento,
                               accesoLibre24h, serviciosGul, serviciosBafi, region, supervisor, coordinador);

@@ -16,7 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Pop Explorer" Height="600" Width="1050">
+        Title="Pop Explorer v1.5" Height="600" Width="1050">
 
     <Window.DataContext>
         <vm:PrincipalViewModel/>
@@ -24,7 +24,7 @@
 
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="410"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -100,6 +100,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                     <DataGridTextColumn Header="Prioridad" Binding="{Binding Prioridad}"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding Estado}"/>
                 </DataGrid.Columns>
 
             </DataGrid>
@@ -128,9 +129,27 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      Text="{Binding CurrentPop.Nombre, Mode=Default}"
                      materialDesign:HintAssist.Hint="Pop" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+            <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentPop.Estado, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Estado" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"
@@ -205,8 +224,8 @@
                      IsReadOnly="True"/>
 
             <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"
-                     Text="{Binding CurrentPop.ClienteAltoValor, Mode=Default}"
-                     materialDesign:HintAssist.Hint="¿Cliente Alto Valor?" 
+                     Text="{Binding CurrentPop.TipoClienteFija, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Tipo Cliente Fija" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"
