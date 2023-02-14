@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using PopExplorer.Lib.Data;
 using PopExplorer.Lib.Models;
+using PopExplorer_Desktop.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,12 @@ namespace PopExplorer_Desktop.ViewModels
             FiltrarListaPop();
         }
 
+        [RelayCommand]
+        void GetAboutInfo()
+        {
+            ShowAboutInfoView();
+        }
+
         #endregion
 
         #region Metodos
@@ -59,7 +66,12 @@ namespace PopExplorer_Desktop.ViewModels
 
             Pops = popsFiltered;
         }
-                
+
+        void ShowAboutInfoView()
+        {
+            AboutView aboutView = new AboutView();
+            aboutView.Show();
+        }
 
         #endregion
 

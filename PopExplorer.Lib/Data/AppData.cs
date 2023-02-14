@@ -13,6 +13,8 @@ namespace PopExplorer.Lib.Data
     {
         static public List<Pop> Pops { get; set; }        
         static public FileInfo FileInfo { get; set; }
+        static public AuthorInfo AuthorInfo { get; set; }
+        static public AppVersionInfo AppVersionInfo { get; set; }
 
         static public void Inicializar(FileInfo fileInfo,string sheetName)
         {
@@ -25,6 +27,7 @@ namespace PopExplorer.Lib.Data
             // Se obtiene los datos del archivo
             popDataAccess = new PopDataAccess(FileInfo, sheetName);
             Pops = popDataAccess.Pops;
+
         }
     }
 }

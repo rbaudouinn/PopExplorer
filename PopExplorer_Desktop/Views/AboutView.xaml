@@ -1,0 +1,130 @@
+﻿<Window x:Class="PopExplorer_Desktop.Views.AboutView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PopExplorer_Desktop.Views"
+        xmlns:vm="clr-namespace:PopExplorer_Desktop.ViewModels"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontFamily="Segoe UI"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="24"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="About this App" Height="300" Width="250" ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <vm:AboutViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding AuthorInfo.FullName, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Autor" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+        
+        <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding AuthorInfo.Email, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Correo" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+        
+        <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding AuthorInfo.Cellphone, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Telefono" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+        <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding AppVersionInfo.Version, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Versión" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+        <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"
+                     Text="{Binding AppVersionInfo.UpdateDateText, Mode=OneWay}"
+                     materialDesign:HintAssist.Hint="Fecha de version" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+    </Grid>
+</Window>
