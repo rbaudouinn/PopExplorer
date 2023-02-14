@@ -12,6 +12,7 @@ namespace PopExplorer.Lib.Models
         public string Estado { get; set; }
         public string Prioridad { get; set; }
         public string TipoClienteFija { get; set; }
+        public string SitioBafi { get; set; }
         public string ClienteAltoValor { get; set; }
         public string Direccion { get; set; }
         public string Departamento { get; set; }
@@ -49,7 +50,7 @@ namespace PopExplorer.Lib.Models
         public string LatitudLongitud { get => $"{Latitud}, {Longitud}"; }
 
 
-        public Pop(string nombre, string estado, string prioridad, string tipoClienteFija, string clienteAltoValor, string direccion, string departamento, string provincia, string distrito, string zona,
+        public Pop(string nombre, string estado, string prioridad, string tipoClienteFija, string sitioBafi, string clienteAltoValor, string direccion, string departamento, string provincia, string distrito, string zona,
                    double latitud, double longitud, string tipoTorre, double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadorFinal, string nombreSitioCoubicador,
                    string operadorCoubicado, string nombreSitioCoubicante, string codigoCoubicador, string ubicacionEquipos, string agregador, string preAgregador, string proveedorDeMantenimiento,
                    string accesoLibre24h, int serviciosGul, int serviciosBafi, string region, string supervisor, string coordinador)
@@ -58,6 +59,7 @@ namespace PopExplorer.Lib.Models
             Estado = estado;
             Prioridad = prioridad;
             TipoClienteFija = tipoClienteFija;
+            SitioBafi = sitioBafi;
             ClienteAltoValor = clienteAltoValor;
             Direccion = direccion;
             Departamento = departamento;
@@ -94,6 +96,7 @@ namespace PopExplorer.Lib.Models
             Estado = "";
             Prioridad = "";
             TipoClienteFija = "";
+            SitioBafi = "";
             ClienteAltoValor = "";
             Direccion = "";
             Departamento = "";

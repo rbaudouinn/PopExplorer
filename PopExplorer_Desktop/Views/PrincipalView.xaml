@@ -16,7 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Pop Explorer v1.5" Height="600" Width="1050">
+        Title="Pop Explorer v1.6" Height="600" Width="1050">
 
     <Window.DataContext>
         <vm:PrincipalViewModel/>
@@ -223,7 +223,7 @@
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
 
-            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"
+            <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
                      Text="{Binding CurrentPop.TipoClienteFija, Mode=Default}"
                      materialDesign:HintAssist.Hint="Tipo Cliente Fija" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -241,8 +241,9 @@
                      TextAlignment="Left"
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
+            
 
-            <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
+            <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1"
                      Text="{Binding CurrentPop.Servicios, Mode=OneWay}"
                      materialDesign:HintAssist.Hint="Servicios" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -261,9 +262,28 @@
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
 
-            <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+            <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                      Text="{Binding CurrentPop.PopPrioridadServicios, Mode=OneWay}"
                      materialDesign:HintAssist.Hint="Pop Prioridad y Servicios" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
+            <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                     Text="{Binding CurrentPop.SitioBafi, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Sitio BAFI" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"
