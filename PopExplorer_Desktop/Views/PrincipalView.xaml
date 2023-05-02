@@ -16,7 +16,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Pop Explorer v1.7" Height="600" Width="1050">
+        Title="{Binding Title}" Height="600" Width="1050">
 
     <Window.DataContext>
         <vm:PrincipalViewModel/>

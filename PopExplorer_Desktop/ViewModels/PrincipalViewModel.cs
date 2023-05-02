@@ -16,8 +16,10 @@ namespace PopExplorer_Desktop.ViewModels
     {
         #region propiedades
         [ObservableProperty]
-        //private List<Pop> pops = AppData.Pops;
         private List<IRanNetworkElement> ranNetworkElements = AppData.RanNetworkElements;
+
+        [ObservableProperty]
+        private string title = $"Pop Explorer {AppData.AppVersionInfo.Version}";
 
         [ObservableProperty]
         private IRanNetworkElement currentRanNetworkElement;
