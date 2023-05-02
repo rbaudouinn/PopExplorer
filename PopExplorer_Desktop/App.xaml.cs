@@ -23,10 +23,10 @@ namespace PopExplorer_Desktop
 
             // Definición de variables
             string filePath = "";
-            string fileName = "";
-            string fileFullName = "";
-            string sheetName = "";
-            FileInfo fileInfo;
+            string popfileName = "";
+            string popfileFullName = "";
+            string popSheetName = "";
+            FileInfo popfileInfo;
 
             // Se Obtienen el IConfiguración
             var builder = new ConfigurationBuilder()
@@ -34,17 +34,17 @@ namespace PopExplorer_Desktop
                 .AddJsonFile("appsettings.json");
             IConfiguration configuration = builder.Build();
 
-            // Se extrae los datos de configuración
+            // Se extrae los datos de configuración de Reporte_Sitio_POP.xlsx
             filePath = configuration.GetSection("ReportePopInfo:FilePath").Value;
-            fileName = configuration.GetSection("ReportePopInfo:FileName").Value;
-            fileFullName = $"{filePath}\\{fileName}";
-            sheetName = configuration.GetSection("ReportePopInfo:SheetName").Value;
+            popfileName = configuration.GetSection("ReportePopInfo:Pop:FileName").Value;
+            popfileFullName = $"{filePath}\\{popfileName}";
+            popSheetName = configuration.GetSection("ReportePopInfo:Pop:SheetName").Value;
 
             // Se coloca las conidiciones iniciales
-            fileInfo = new FileInfo(fileFullName);
+            popfileInfo = new FileInfo(popfileFullName);
 
             // Se Inicializa el AppData
-            AppData.Inicializar(fileInfo,sheetName);
+            AppData.Inicializar(popfileInfo,popSheetName);
 
             // Se coloca los datos del autor
             AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "+51998102147");
