@@ -75,13 +75,13 @@
 
                 <Button Grid.Column="1"                        
                         Style="{DynamicResource MaterialDesignToolButton}"
-                        Command="{Binding BuscarPopCommand}" >
+                        Command="{Binding BuscarRanNetworkElementCommand}" >
                     <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
                 </Button>
 
                 <Button Grid.Column="2"                        
                         Style="{DynamicResource MaterialDesignToolButton}"
-                        Command="{Binding LimpiarPopToSeearchCommand}">
+                        Command="{Binding LimpiarRanNetworkElementToSearchCommand}">
                     <materialDesign:PackIcon Kind="Eraser" Opacity=".56" Foreground="#0066C5"  />
                 </Button>
 

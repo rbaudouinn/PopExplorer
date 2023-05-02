@@ -28,16 +28,16 @@ namespace PopExplorer_Desktop.ViewModels
 
         #region Comandos
         [RelayCommand]
-        void BuscarPop()
+        void BuscarRanNetworkElement()
         {
-            FiltrarListaPop();
+            FiltrarListaRanNetworkElement();
         }
 
         [RelayCommand]
-        void LimpiarPopToSeearch()
+        void LimpiarRanNetworkElementToSearch()
         {
-            ranNetworkElementToSearch = String.Empty;
-            FiltrarListaPop();
+            RanNetworkElementToSearch = String.Empty;
+            FiltrarListaRanNetworkElement();
         }
 
         [RelayCommand]
@@ -49,7 +49,7 @@ namespace PopExplorer_Desktop.ViewModels
         #endregion
 
         #region Metodos
-        void FiltrarListaPop()
+        void FiltrarListaRanNetworkElement()
         {
             // Definición de variables
             List<IRanNetworkElement> ranNetworkElementsFiltered;
@@ -66,7 +66,7 @@ namespace PopExplorer_Desktop.ViewModels
                 ranNetworkElementsFiltered = ranNetworkElementsFiltered.FindAll(x => x.Nombre.ToLower().Contains(auxiliar));
             }
 
-            ranNetworkElements = ranNetworkElementsFiltered;
+            RanNetworkElements = ranNetworkElementsFiltered;
         }
 
         void ShowAboutInfoView()
