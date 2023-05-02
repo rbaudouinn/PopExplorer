@@ -1,4 +1,5 @@
 ﻿using PopExplorer.Lib.DataAccess;
+using PopExplorer.Lib.Interfaces;
 using PopExplorer.Lib.Models;
 using SpreadsheetLight;
 using System;
@@ -17,6 +18,8 @@ namespace PopExplorer.Lib.Data
         static public List<SitioBajaAltura> SitosBajaAltura { get; set; }
         static public FileInfo SitioBajaAlturaFileInfo { get; set; }
 
+        static public List<IRanNetworkElement> RanNetworkElements { get; set; }
+
         static public AuthorInfo AuthorInfo { get; set; }
         static public AppVersionInfo AppVersionInfo { get; set; }
 
@@ -32,13 +35,33 @@ namespace PopExplorer.Lib.Data
             PopFileInfo = popFileInfo;
             SitioBajaAlturaFileInfo = sitioBajaAlturaFileInfo;
 
-            // Se obtiene los datos del archivo
+            // Se obtiene los datos de los archivos
             popDataAccess = new PopDataAccess(PopFileInfo, popSheetName);
             Pops = popDataAccess.Pops;
 
             sitioBajaAlturaDataAccess = new SitioBajaAlturaDataAccess(sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName);
             SitosBajaAltura = sitioBajaAlturaDataAccess.SitiosBajaAltura;
 
+            // Se obtiene la lista RanNetworkElements
+            ObtenerListaRanNetworkElements();
+        }
+
+        static private void ObtenerListaRanNetworkElements()
+        {
+            // Condiciones iniciales
+            RanNetworkElements = new List<IRanNetworkElement>();
+
+            // Se llena la lista con información de Pop
+            foreach (var item in Pops)
+            {
+                RanNetworkElements.Add(item);
+            }
+
+            // Se llena la lista con información de Pop
+            foreach (var item in SitosBajaAltura)
+            {
+                RanNetworkElements.Add(item);
+            }
         }
     }
 }
