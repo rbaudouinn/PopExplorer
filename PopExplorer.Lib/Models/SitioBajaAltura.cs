@@ -25,7 +25,7 @@ namespace PopExplorer.Lib.Models
         public string CompromisoRegulatorio { get; set; }
         public string BandaRegulatorio { get; set; }
         public string TipoTorre { get; set; }
-        public double AlturaDeTorre { get; set; }
+        public double AlturaTorre { get; set; }
         public string TipoEstacion { get; set; }
         public double AlturaEdificacion { get; set; }
         public string CoubicadoEn { get; set; }
@@ -44,7 +44,12 @@ namespace PopExplorer.Lib.Models
         public string ContratistaDepartamentoProvinciaDistrito { get => $"{ProveedorDeMantenimiento} - {DepartamentoProvinciaDistrito}"; }
         public string LatitudLongitud { get => $"{Latitud}, {Longitud}"; }
 
-        public SitioBajaAltura(string nombre, string sitioAncla, string estado, string prioridad, string direccion, string departamento, string provincia, string distrito, double latitud, double longitud, string coberturaPrincipal, string tipoDeCoberturaPrincipal, string compromisoRegulatorio, string bandaRegulatorio, string tipoTorre, double alturaDeTorre, string tipoEstacion, double alturaEdificacion, string coubicadoEn, string ubicacionDeEquipo, string tipoProyecto, string tipoSolucion, string region, string supervisor, string coordinador, string proveedorDeMantenimiento, string consideraciones, string sitioContingente)
+        public SitioBajaAltura(string nombre, string sitioAncla, string estado, string prioridad, string direccion, 
+                               string departamento, string provincia, string distrito, double latitud, double longitud, 
+                               string coberturaPrincipal, string tipoDeCoberturaPrincipal, string compromisoRegulatorio, string bandaRegulatorio, string tipoTorre, 
+                               double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadoEn, string ubicacionDeEquipo, 
+                               string tipoProyecto, string tipoSolucion, string region, string supervisor, string coordinador, 
+                               string proveedorDeMantenimiento, string consideraciones, string sitioContingente)
         {
             Nombre = nombre;
             SitioAncla = sitioAncla;
@@ -61,7 +66,7 @@ namespace PopExplorer.Lib.Models
             CompromisoRegulatorio = compromisoRegulatorio;
             BandaRegulatorio = bandaRegulatorio;
             TipoTorre = tipoTorre;
-            AlturaDeTorre = alturaDeTorre;
+            AlturaTorre = alturaTorre;
             TipoEstacion = tipoEstacion;
             AlturaEdificacion = alturaEdificacion;
             CoubicadoEn = coubicadoEn;
