@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using PopExplorer.Lib.Data;
+using PopExplorer.Lib.Interfaces;
 using PopExplorer.Lib.Models;
 using PopExplorer_Desktop.Views;
 using System;
@@ -15,13 +16,14 @@ namespace PopExplorer_Desktop.ViewModels
     {
         #region propiedades
         [ObservableProperty]
-        private List<Pop> pops = AppData.Pops;
+        //private List<Pop> pops = AppData.Pops;
+        private List<IRanNetworkElement> ranNetworkElements = AppData.RanNetworkElements;
 
         [ObservableProperty]
-        private Pop currentPop;
+        private IRanNetworkElement currentRanNetworkElement;
 
         [ObservableProperty]
-        private string popToSearch ="";
+        private string ranNetworkElementToSearch ="";
         #endregion
 
         #region Comandos
@@ -33,8 +35,8 @@ namespace PopExplorer_Desktop.ViewModels
 
         [RelayCommand]
         void LimpiarPopToSeearch()
-        { 
-            PopToSearch = String.Empty;
+        {
+            ranNetworkElementToSearch = String.Empty;
             FiltrarListaPop();
         }
 
@@ -50,21 +52,21 @@ namespace PopExplorer_Desktop.ViewModels
         void FiltrarListaPop()
         {
             // Definición de variables
-            List<Pop> popsFiltered;
+            List<IRanNetworkElement> ranNetworkElementsFiltered;
             string auxiliar;
 
             // Condiciones iniciales
-            auxiliar = PopToSearch.Trim();
-            popsFiltered = AppData.Pops;
+            auxiliar = ranNetworkElementToSearch.Trim();
+            ranNetworkElementsFiltered = AppData.RanNetworkElements;
 
             // Se realiza el filtro
             if (auxiliar.Equals("") == false)
             {
                 auxiliar = auxiliar.ToLower();
-                popsFiltered = popsFiltered.FindAll(x => x.Nombre.ToLower().Contains(auxiliar));
+                ranNetworkElementsFiltered = ranNetworkElementsFiltered.FindAll(x => x.Nombre.ToLower().Contains(auxiliar));
             }
 
-            Pops = popsFiltered;
+            ranNetworkElements = ranNetworkElementsFiltered;
         }
 
         void ShowAboutInfoView()

@@ -45,8 +45,8 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBox Grid.Column="0"
-                     Text="{Binding PopToSearch, Mode=Default}"
-                     materialDesign:HintAssist.Hint="Pop" 
+                     Text="{Binding RanNetworkElementToSearch, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Network Element" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"
@@ -91,8 +91,8 @@
             
             <!-- Search Table -->
             <DataGrid Grid.Row="1"
-                      ItemsSource="{Binding Pops, Mode=OneWay}"
-                      SelectedItem="{Binding CurrentPop}"
+                      ItemsSource="{Binding RanNetworkElements, Mode=OneWay}"
+                      SelectedItem="{Binding CurrentRanNetworkElement}"
                       IsReadOnly="True"
                       SelectionMode="Single"
                       AutoGenerateColumns="False">
