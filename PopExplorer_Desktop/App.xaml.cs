@@ -47,7 +47,7 @@ namespace PopExplorer_Desktop
             AppData.Inicializar(fileInfo,sheetName);
 
             // Se coloca los datos del autor
-            AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "51998102147");
+            AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "+51998102147");
 
             // Se coloca los datos de la version
             AppData.AppVersionInfo = new AppVersionInfo("v1.7", new DateTime(2023, 02, 14));
