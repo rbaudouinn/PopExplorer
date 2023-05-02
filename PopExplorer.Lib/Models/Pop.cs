@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PopExplorer.Lib.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PopExplorer.Lib.Models
 {
-    public class Pop
+    public class Pop : IRanNetworkElement
     {
         public string Nombre { get; set; }
         public string Estado { get; set; }
