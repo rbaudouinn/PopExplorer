@@ -23,10 +23,17 @@ namespace PopExplorer_Desktop
 
             // Definición de variables
             string filePath = "";
-            string popfileName = "";
-            string popfileFullName = "";
+
+            string popFileName = "";
+            string popFileFullName = "";
             string popSheetName = "";
-            FileInfo popfileInfo;
+            FileInfo popFileInfo;
+
+            string sitioBajaAlturaFileName = "";
+            string sitioBajaAlturaFileFullName = "";
+            string sitioBajaAlturaSheetName = "";
+            FileInfo sitioBajaAlturaFileInfo;
+
 
             // Se Obtienen el IConfiguración
             var builder = new ConfigurationBuilder()
@@ -36,15 +43,21 @@ namespace PopExplorer_Desktop
 
             // Se extrae los datos de configuración de Reporte_Sitio_POP.xlsx
             filePath = configuration.GetSection("ReportePopInfo:FilePath").Value;
-            popfileName = configuration.GetSection("ReportePopInfo:Pop:FileName").Value;
-            popfileFullName = $"{filePath}\\{popfileName}";
+
+            popFileName = configuration.GetSection("ReportePopInfo:Pop:FileName").Value;
+            popFileFullName = $"{filePath}\\{popFileName}";
             popSheetName = configuration.GetSection("ReportePopInfo:Pop:SheetName").Value;
 
+            sitioBajaAlturaFileName = configuration.GetSection("ReportePopInfo:BajaAltura:FileName").Value;
+            sitioBajaAlturaFileFullName = $"{filePath}\\{sitioBajaAlturaFileName}";
+            sitioBajaAlturaSheetName = configuration.GetSection("ReportePopInfo:BajaAltura:SheetName").Value;
+
             // Se coloca las conidiciones iniciales
-            popfileInfo = new FileInfo(popfileFullName);
+            popFileInfo = new FileInfo(popFileFullName);
+            sitioBajaAlturaFileInfo = new FileInfo(sitioBajaAlturaFileFullName);
 
             // Se Inicializa el AppData
-            AppData.Inicializar(popfileInfo,popSheetName);
+            AppData.Inicializar(popFileInfo,popSheetName, sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName);
 
             // Se coloca los datos del autor
             AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "+51998102147");

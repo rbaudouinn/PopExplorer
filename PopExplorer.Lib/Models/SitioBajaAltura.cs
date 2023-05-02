@@ -98,7 +98,7 @@ namespace PopExplorer.Lib.Models
             CompromisoRegulatorio = "";
             BandaRegulatorio = "";
             TipoTorre = "";
-            AlturaDeTorre = double.NaN;
+            AlturaTorre = double.NaN;
             TipoEstacion = "";
             AlturaEdificacion = double.NaN;
             CoubicadoEn = "";
