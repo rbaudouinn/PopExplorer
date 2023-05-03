@@ -53,7 +53,7 @@ namespace PopExplorer.Lib.DataAccess
 
             string nombre; string sitioAncla; string estado; string prioridad; string direccion;
             string departamento; string provincia; string distrito; double latitud; double longitud;
-            string coberturaPrincipal; string tipoDeCoberturaPrincipal; string compromisoRegulatorio; string bandaRegulatorio; string tipoTorre;
+            string coberturaPrincipal; string tipoCoberturaPrincipal; string compromisoRegulatorio; string bandaRegulatorio; string tipoTorre;
             double alturaTorre; string tipoEstacion; double alturaEdificacion; string coubicadoEn; string ubicacionDeEquipo;
             string tipoProyecto; string tipoSolucion; string region; string supervisor; string coordinador;
             string proveedorDeMantenimiento; string consideraciones; string sitioContingente;
@@ -85,7 +85,7 @@ namespace PopExplorer.Lib.DataAccess
                 flagNumberParse = double.TryParse(auxiliar, out longitud);
 
                 coberturaPrincipal = sLDocument.GetCellValueAsString(i + 2, 14);
-                tipoDeCoberturaPrincipal = sLDocument.GetCellValueAsString(i + 2, 15);
+                tipoCoberturaPrincipal = sLDocument.GetCellValueAsString(i + 2, 15);
                 compromisoRegulatorio = sLDocument.GetCellValueAsString(i + 2, 16);
                 bandaRegulatorio = sLDocument.GetCellValueAsString(i + 2, 17);
                 tipoTorre = sLDocument.GetCellValueAsString(i + 2, 18);
@@ -117,7 +117,7 @@ namespace PopExplorer.Lib.DataAccess
 
                 sitioBajaAltura = new SitioBajaAltura(nombre, sitioAncla, estado, prioridad, direccion,
                                                       departamento, provincia, distrito, latitud, longitud,
-                                                      coberturaPrincipal, tipoDeCoberturaPrincipal, compromisoRegulatorio, bandaRegulatorio, tipoTorre,
+                                                      coberturaPrincipal, tipoCoberturaPrincipal, compromisoRegulatorio, bandaRegulatorio, tipoTorre,
                                                       alturaTorre, tipoEstacion, alturaEdificacion, coubicadoEn, ubicacionDeEquipo,
                                                       tipoProyecto, tipoSolucion, region, supervisor, coordinador,
                                                       proveedorDeMantenimiento, consideraciones, sitioContingente);

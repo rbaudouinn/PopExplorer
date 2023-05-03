@@ -21,7 +21,7 @@ namespace PopExplorer.Lib.Models
         public double Latitud { get; set; }
         public double Longitud { get; set; }
         public string CoberturaPrincipal { get; set; }
-        public string TipoDeCoberturaPrincipal { get; set; }
+        public string TipoCoberturaPrincipal { get; set; }
         public string CompromisoRegulatorio { get; set; }
         public string BandaRegulatorio { get; set; }
         public string TipoTorre { get; set; }
@@ -46,7 +46,7 @@ namespace PopExplorer.Lib.Models
 
         public SitioBajaAltura(string nombre, string sitioAncla, string estado, string prioridad, string direccion, 
                                string departamento, string provincia, string distrito, double latitud, double longitud, 
-                               string coberturaPrincipal, string tipoDeCoberturaPrincipal, string compromisoRegulatorio, string bandaRegulatorio, string tipoTorre, 
+                               string coberturaPrincipal, string tipoCoberturaPrincipal, string compromisoRegulatorio, string bandaRegulatorio, string tipoTorre, 
                                double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadoEn, string ubicacionDeEquipo, 
                                string tipoProyecto, string tipoSolucion, string region, string supervisor, string coordinador, 
                                string proveedorDeMantenimiento, string consideraciones, string sitioContingente)
@@ -62,7 +62,7 @@ namespace PopExplorer.Lib.Models
             Latitud = latitud;
             Longitud = longitud;
             CoberturaPrincipal = coberturaPrincipal;
-            TipoDeCoberturaPrincipal = tipoDeCoberturaPrincipal;
+            TipoCoberturaPrincipal = tipoCoberturaPrincipal;
             CompromisoRegulatorio = compromisoRegulatorio;
             BandaRegulatorio = bandaRegulatorio;
             TipoTorre = tipoTorre;
@@ -94,7 +94,7 @@ namespace PopExplorer.Lib.Models
             Latitud = double.NaN;
             Longitud = double.NaN;
             CoberturaPrincipal = "";
-            TipoDeCoberturaPrincipal = "";
+            TipoCoberturaPrincipal = "";
             CompromisoRegulatorio = "";
             BandaRegulatorio = "";
             TipoTorre = "";
