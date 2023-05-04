@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using PopExplorer.Lib.Interfaces;
 using PopExplorer.Lib.Models;
 using System;
@@ -9,14 +10,15 @@ using System.Threading.Tasks;
 
 namespace PopExplorer_Desktop.ViewModels
 {
-    public partial class PopViewModel : ObservableValidator
+    public partial class PopViewModel : ObservableValidator, IBaseViewModel
     {
         [ObservableProperty]
-        public Pop pop;
-
+        public Pop currentPop;
+                
         public void Inicializar(IRanNetworkElement runNetworkElement)
         {
-            pop = ((PopExplorer.Lib.Models.Pop)runNetworkElement);
+            CurrentPop = ((PopExplorer.Lib.Models.Pop)runNetworkElement);
         }
+        
     }
 }

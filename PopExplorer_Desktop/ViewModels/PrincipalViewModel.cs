@@ -16,6 +16,9 @@ namespace PopExplorer_Desktop.ViewModels
     {
         #region propiedades
         [ObservableProperty]
+        public IBaseViewModel selectedViewModel;
+
+        [ObservableProperty]
         private List<IRanNetworkElement> ranNetworkElements = AppData.RanNetworkElements;
 
         [ObservableProperty]
@@ -25,7 +28,7 @@ namespace PopExplorer_Desktop.ViewModels
         private IRanNetworkElement currentRanNetworkElement;
 
         [ObservableProperty]
-        private string ranNetworkElementToSearch ="";
+        private string ranNetworkElementToSearch = "";
         #endregion
 
         #region Comandos
@@ -48,9 +51,30 @@ namespace PopExplorer_Desktop.ViewModels
             ShowAboutInfoView();
         }
 
+        [RelayCommand]
+        void ActualizarSelectedViewModel()
+        {
+            DefinirViewModel();
+        }
+
         #endregion
 
         #region Metodos
+
+        void DefinirViewModel()
+        {
+            if (CurrentRanNetworkElement is Pop pop)
+            {
+                SelectedViewModel = new PopViewModel();
+                ((PopViewModel)SelectedViewModel).Inicializar(CurrentRanNetworkElement);
+            }
+            else if (CurrentRanNetworkElement is SitioBajaAltura sitioBajaAltura)
+            {
+                SelectedViewModel = new SitioBajaAlturaViewModel();
+                ((SitioBajaAlturaViewModel)SelectedViewModel).CurrentSitioBajaAltura = sitioBajaAltura;
+            }
+        }
+
         void FiltrarListaRanNetworkElement()
         {
             // Definición de variables

@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace PopExplorer_Desktop.ViewModels
 {
-    public partial class SitioBajaAlturaViewModel : ObservableValidator
+    public partial class SitioBajaAlturaViewModel : ObservableValidator, IBaseViewModel
     {
         [ObservableProperty]
-        public SitioBajaAltura sitioBajaAltura;
+        public SitioBajaAltura currentSitioBajaAltura;
 
+        /*
         public void Inicializar(IRanNetworkElement runNetworkElement)
         {
             sitioBajaAltura = ((PopExplorer.Lib.Models.SitioBajaAltura)runNetworkElement);
-        }
+        }*/
     }
 }

@@ -19,9 +19,7 @@
              d:DesignHeight="575" d:DesignWidth="800"
              >
 
-    <UserControl.DataContext>
-        <vm:PopViewModel/>
-    </UserControl.DataContext>
+   
 
     <Grid>
 

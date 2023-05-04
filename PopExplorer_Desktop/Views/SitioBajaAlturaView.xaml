@@ -18,10 +18,6 @@
              FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="550" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <vm:SitioBajaAlturaViewModel/>
-    </UserControl.DataContext>
-
     <Grid>
         <!-- Panel de Datos -->
         <Grid Grid.Column="1">
@@ -350,7 +346,7 @@
                      IsReadOnly="True"/>
 
             <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1"
-                     Text="{Binding CurrentSitioBajaAltura.CoberturaPrincial, Mode=OneWay}" 
+                     Text="{Binding CurrentSitioBajaAltura.CoberturaPrincipal, Mode=OneWay}" 
                      materialDesign:HintAssist.Hint="¿Cobertura principal?" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
@@ -369,7 +365,7 @@
                      IsReadOnly="True"/>
 
             <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1"
-                     Text="{Binding CurrentSitioBajaAltura.TipoCoberturaPrincial, Mode=OneWay}" 
+                     Text="{Binding CurrentSitioBajaAltura.TipoCoberturaPrincipal, Mode=OneWay}" 
                      materialDesign:HintAssist.Hint="Tipo de Cobertura" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
