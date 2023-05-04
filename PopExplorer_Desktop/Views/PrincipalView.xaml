@@ -17,10 +17,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="{Binding Title}" Height="600" Width="1050">
-
-    <Window.DataContext>
-        <vm:PrincipalViewModel/>
-    </Window.DataContext>
+    
 
     <Grid Margin="5">
         

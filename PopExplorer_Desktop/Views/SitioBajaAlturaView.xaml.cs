@@ -18,7 +18,7 @@ namespace PopExplorer_Desktop.Views
     /// <summary>
     /// Lógica de interacción para SitioBajaAlturaView.xaml
     /// </summary>
-    public partial class SitioBajaAlturaView : Page
+    public partial class SitioBajaAlturaView : UserControl
     {
         public SitioBajaAlturaView()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PopExplorer_Desktop.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,14 @@ namespace PopExplorer_Desktop.Views
         public PrincipalView()
         {
             InitializeComponent();
+            DataContext = new PrincipalViewModel();
+
+            /*
+             * 
+             * <Window.DataContext>
+            <vm:PrincipalViewModel/>
+    </Window.DataContext>
+            */
         }
     }
 }

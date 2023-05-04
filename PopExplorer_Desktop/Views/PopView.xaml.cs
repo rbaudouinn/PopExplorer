@@ -18,7 +18,7 @@ namespace PopExplorer_Desktop.Views
     /// <summary>
     /// Lógica de interacción para PopView.xaml
     /// </summary>
-    public partial class PopView : Page
+    public partial class PopView : UserControl
     {
         public PopView()
         {
