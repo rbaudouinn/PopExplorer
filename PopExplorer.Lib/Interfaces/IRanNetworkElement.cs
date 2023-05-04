@@ -8,6 +8,7 @@ namespace PopExplorer.Lib.Interfaces
 {
     public interface IRanNetworkElement
     {
+        public string NetWorkElementType { get; set; }
         public string Nombre { get; set; }
         public string Estado { get; set; }
         public string Prioridad { get; set; }

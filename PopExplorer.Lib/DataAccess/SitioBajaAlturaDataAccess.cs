@@ -11,17 +11,20 @@ namespace PopExplorer.Lib.DataAccess
 {
     public class SitioBajaAlturaDataAccess
     {
+        public string NetworkElementType { get; set; }
         public List<SitioBajaAltura> SitiosBajaAltura { get; internal set; }
         public FileInfo FileInfo { get; set; }
         public string SheetName { get; set; }
         public string Log { get; set; }
 
-        public SitioBajaAlturaDataAccess(FileInfo fileInfo, string sheetName)
+        public SitioBajaAlturaDataAccess(FileInfo fileInfo, string sheetName, string networkElementType)
         {
+            NetworkElementType = networkElementType;
             FileInfo = fileInfo;
             SheetName = sheetName;
             SitiosBajaAltura = new List<SitioBajaAltura>();
             ObtenerDatos();
+            
         }
 
         private void ObtenerDatos()
@@ -115,7 +118,7 @@ namespace PopExplorer.Lib.DataAccess
                 consideraciones = sLDocument.GetCellValueAsString(i + 2, 36);
                 sitioContingente = sLDocument.GetCellValueAsString(i + 2, 37);
 
-                sitioBajaAltura = new SitioBajaAltura(nombre, sitioAncla, estado, prioridad, direccion,
+                sitioBajaAltura = new SitioBajaAltura(NetworkElementType,nombre, sitioAncla, estado, prioridad, direccion,
                                                       departamento, provincia, distrito, latitud, longitud,
                                                       coberturaPrincipal, tipoCoberturaPrincipal, compromisoRegulatorio, bandaRegulatorio, tipoTorre,
                                                       alturaTorre, tipoEstacion, alturaEdificacion, coubicadoEn, ubicacionDeEquipo,

@@ -36,10 +36,10 @@ namespace PopExplorer.Lib.Data
             SitioBajaAlturaFileInfo = sitioBajaAlturaFileInfo;
 
             // Se obtiene los datos de los archivos
-            popDataAccess = new PopDataAccess(PopFileInfo, popSheetName);
+            popDataAccess = new PopDataAccess(PopFileInfo, popSheetName,"Pop");
             Pops = popDataAccess.Pops;
 
-            sitioBajaAlturaDataAccess = new SitioBajaAlturaDataAccess(sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName);
+            sitioBajaAlturaDataAccess = new SitioBajaAlturaDataAccess(sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName, "Sitio Baja Altura");
             SitosBajaAltura = sitioBajaAlturaDataAccess.SitiosBajaAltura;
 
             // Se obtiene la lista RanNetworkElements

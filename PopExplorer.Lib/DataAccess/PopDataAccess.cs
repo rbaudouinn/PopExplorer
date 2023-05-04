@@ -11,17 +11,20 @@ namespace PopExplorer.Lib.DataAccess
 {
     public class PopDataAccess
     {
+        public string NetworkElementType { get; set; }
         public List<Pop> Pops { get; internal set; }
         public FileInfo FileInfo { get; set; }
         public string SheetName { get; set; }
         public string Log { get; set; }        
 
-        public PopDataAccess(FileInfo fileInfo, string sheetName)
+        public PopDataAccess(FileInfo fileInfo, string sheetName, string networkElementType)
         {
+            NetworkElementType = networkElementType;
             FileInfo = fileInfo;
             SheetName = sheetName;
             Pops = new List<Pop>();
             ObtenerDatos();
+            
         }
 
         void ObtenerDatos()
@@ -128,7 +131,7 @@ namespace PopExplorer.Lib.DataAccess
                 supervisor = sLDocument.GetCellValueAsString(i + 2, 98);
                 coordinador = sLDocument.GetCellValueAsString(i + 2, 99);
 
-                pop = new Pop(nombre, estado, prioridad, tipoClienteFija, sitioBafi, clienteAltoValor, direccion, departamento, provincia, distrito, zona,
+                pop = new Pop(NetworkElementType, nombre, estado, prioridad, tipoClienteFija, sitioBafi, clienteAltoValor, direccion, departamento, provincia, distrito, zona,
                               latitud, longitud, tipoTorre, alturaTorre, tipoEstacion, alturaEdificacion, coubicadorFinal, nombreSitioCoubicador,
                               operadorCoubicado, nombreSitioCoubicante, codigoCoubicador, ubicacionEquipos, agregador, preAgregador, proveedorDeMantenimiento,
                               accesoLibre24h, serviciosGul, serviciosBafi, region, supervisor, coordinador);

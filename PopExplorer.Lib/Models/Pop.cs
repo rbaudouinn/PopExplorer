@@ -9,6 +9,7 @@ namespace PopExplorer.Lib.Models
 {
     public class Pop : IRanNetworkElement
     {
+        public string NetWorkElementType { get; set; }
         public string Nombre { get; set; }
         public string Estado { get; set; }
         public string Prioridad { get; set; }
@@ -51,11 +52,12 @@ namespace PopExplorer.Lib.Models
         public string LatitudLongitud { get => $"{Latitud}, {Longitud}"; }
 
 
-        public Pop(string nombre, string estado, string prioridad, string tipoClienteFija, string sitioBafi, string clienteAltoValor, string direccion, string departamento, string provincia, string distrito, string zona,
+        public Pop(string networkElementType, string nombre, string estado, string prioridad, string tipoClienteFija, string sitioBafi, string clienteAltoValor, string direccion, string departamento, string provincia, string distrito, string zona,
                    double latitud, double longitud, string tipoTorre, double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadorFinal, string nombreSitioCoubicador,
                    string operadorCoubicado, string nombreSitioCoubicante, string codigoCoubicador, string ubicacionEquipos, string agregador, string preAgregador, string proveedorDeMantenimiento,
                    string accesoLibre24h, int serviciosGul, int serviciosBafi, string region, string supervisor, string coordinador)
         {
+            NetWorkElementType = networkElementType;
             Nombre = nombre;
             Estado = estado;
             Prioridad = prioridad;
@@ -93,6 +95,7 @@ namespace PopExplorer.Lib.Models
 
         public Pop()
         {
+            NetWorkElementType = "";
             Nombre = "";
             Estado = "";
             Prioridad = "";
