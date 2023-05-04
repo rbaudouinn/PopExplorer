@@ -43,7 +43,7 @@
 
             <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      Text="{Binding CurrentSitioBajaAltura.Nombre, Mode=Default}"
-                     materialDesign:HintAssist.Hint="Sitio Baja Altura" 
+                     materialDesign:HintAssist.Hint="{Binding CurrentSitioBajaAltura.NetworkElementType, Mode=Default}" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"

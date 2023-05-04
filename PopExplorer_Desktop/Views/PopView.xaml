@@ -47,7 +47,7 @@
 
             <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                      Text="{Binding CurrentPop.Nombre, Mode=Default}"
-                     materialDesign:HintAssist.Hint="Pop" 
+                     materialDesign:HintAssist.Hint="{Binding CurrentPop.NetWorkElementType, Mode=Default}" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 
                      HorizontalAlignment="Stretch"
