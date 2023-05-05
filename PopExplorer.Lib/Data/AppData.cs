@@ -18,22 +18,27 @@ namespace PopExplorer.Lib.Data
         static public List<SitioBajaAltura> SitosBajaAltura { get; set; }
         static public FileInfo SitioBajaAlturaFileInfo { get; set; }
 
+        static public List<SitioBajaAltura> MicroCeldas { get; set; }
+        static public FileInfo MicroCeldaFileInfo { get; set; }
+
         static public List<IRanNetworkElement> RanNetworkElements { get; set; }
 
         static public AuthorInfo AuthorInfo { get; set; }
         static public AppVersionInfo AppVersionInfo { get; set; }
 
         static public void Inicializar(FileInfo popFileInfo,string popSheetName, 
-                                       FileInfo sitioBajaAlturaFileInfo,
-                                       string sitioBajaAlturaSheetName)
+                                       FileInfo sitioBajaAlturaFileInfo, string sitioBajaAlturaSheetName,
+                                       FileInfo microCeldaFileInfo, string microCeldaSheetName)
         {
             // Definición de variables
             PopDataAccess popDataAccess;
             SitioBajaAlturaDataAccess sitioBajaAlturaDataAccess;
-            
+            SitioBajaAlturaDataAccess microCeldaDataAccess;
+
             // Condiciones iniciales
             PopFileInfo = popFileInfo;
             SitioBajaAlturaFileInfo = sitioBajaAlturaFileInfo;
+            MicroCeldaFileInfo = microCeldaFileInfo;
 
             // Se obtiene los datos de los archivos
             popDataAccess = new PopDataAccess(PopFileInfo, popSheetName,"Pop");
@@ -41,6 +46,9 @@ namespace PopExplorer.Lib.Data
 
             sitioBajaAlturaDataAccess = new SitioBajaAlturaDataAccess(sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName, "Sitio Baja Altura");
             SitosBajaAltura = sitioBajaAlturaDataAccess.SitiosBajaAltura;
+
+            microCeldaDataAccess = new SitioBajaAlturaDataAccess(microCeldaFileInfo, microCeldaSheetName, "Micro Celda");
+            MicroCeldas = microCeldaDataAccess.SitiosBajaAltura;
 
             // Se obtiene la lista RanNetworkElements
             ObtenerListaRanNetworkElements();
@@ -57,8 +65,14 @@ namespace PopExplorer.Lib.Data
                 RanNetworkElements.Add(item);
             }
 
-            // Se llena la lista con información de Pop
+            // Se llena la lista con información de Sitios Baja Altura
             foreach (var item in SitosBajaAltura)
+            {
+                RanNetworkElements.Add(item);
+            }
+
+            // Se llena la lista con información de Micro Celdas
+            foreach (var item in MicroCeldas)
             {
                 RanNetworkElements.Add(item);
             }

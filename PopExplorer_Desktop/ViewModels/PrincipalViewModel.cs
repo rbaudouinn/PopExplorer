@@ -16,7 +16,7 @@ namespace PopExplorer_Desktop.ViewModels
     {
         #region propiedades
         [ObservableProperty]
-        public IBaseViewModel selectedViewModel;
+        public IBaseViewModel selectedViewModel = new PopViewModel();
 
         [ObservableProperty]
         private List<IRanNetworkElement> ranNetworkElements = AppData.RanNetworkElements;

@@ -9,7 +9,7 @@ namespace PopExplorer.Lib.Models
 {
     public class SitioBajaAltura : IRanNetworkElement
     {
-        public string NetWorkElementType { get; set; }
+        public string NetworkElementType { get; set; }
         public string Nombre { get; set; }
         public string SitioAncla { get; set; }
         public string Estado { get; set; }
@@ -51,7 +51,7 @@ namespace PopExplorer.Lib.Models
                                string tipoProyecto, string tipoSolucion, string region, string supervisor, string coordinador, 
                                string proveedorDeMantenimiento, string consideraciones, string sitioContingente)
         {
-            NetWorkElementType = networkElementType;
+            NetworkElementType = networkElementType;
             Nombre = nombre;
             SitioAncla = sitioAncla;
             Estado = estado;
@@ -84,7 +84,7 @@ namespace PopExplorer.Lib.Models
 
         public SitioBajaAltura()
         {
-            NetWorkElementType = "";
+            NetworkElementType = "";
             Nombre = "";
             SitioAncla = "";
             Estado = "";

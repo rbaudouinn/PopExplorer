@@ -9,7 +9,7 @@ namespace PopExplorer.Lib.Models
 {
     public class Pop : IRanNetworkElement
     {
-        public string NetWorkElementType { get; set; }
+        public string NetworkElementType { get; set; }
         public string Nombre { get; set; }
         public string Estado { get; set; }
         public string Prioridad { get; set; }
@@ -57,7 +57,7 @@ namespace PopExplorer.Lib.Models
                    string operadorCoubicado, string nombreSitioCoubicante, string codigoCoubicador, string ubicacionEquipos, string agregador, string preAgregador, string proveedorDeMantenimiento,
                    string accesoLibre24h, int serviciosGul, int serviciosBafi, string region, string supervisor, string coordinador)
         {
-            NetWorkElementType = networkElementType;
+            NetworkElementType = networkElementType;
             Nombre = nombre;
             Estado = estado;
             Prioridad = prioridad;
@@ -95,7 +95,7 @@ namespace PopExplorer.Lib.Models
 
         public Pop()
         {
-            NetWorkElementType = "";
+            NetworkElementType = "";
             Nombre = "";
             Estado = "";
             Prioridad = "";
@@ -129,6 +129,44 @@ namespace PopExplorer.Lib.Models
             Supervisor = "";
             Coordinador = "";
         }
+
+        public Pop(string networkElementType)
+        {
+            NetworkElementType = networkElementType;
+            Nombre = "";
+            Estado = "";
+            Prioridad = "";
+            TipoClienteFija = "";
+            SitioBafi = "";
+            ClienteAltoValor = "";
+            Direccion = "";
+            Departamento = "";
+            Provincia = "";
+            Distrito = "";
+            Zona = "";
+            Latitud = -1;
+            Longitud = -1;
+            TipoTorre = "";
+            AlturaTorre = 0;
+            TipoEstacion = "";
+            AlturaEdificacion = 0;
+            CoubicadorFinal = "";
+            NombreSitioCoubicador = "";
+            OperadorCoubicado = "";
+            NombreSitioCoubicante = "";
+            CodigoCoubicador = "";
+            UbicacionEquipos = "";
+            Agregador = "";
+            PreAgregador = "";
+            ProveedorDeMantenimiento = "";
+            AccesoLibre24h = "";
+            ServiciosGul = 0;
+            ServiciosBafi = 0;
+            Region = "";
+            Supervisor = "";
+            Coordinador = "";
+        }
+
 
         string ObtenerServicios()
         {

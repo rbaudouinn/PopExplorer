@@ -34,6 +34,10 @@ namespace PopExplorer_Desktop
             string sitioBajaAlturaSheetName = "";
             FileInfo sitioBajaAlturaFileInfo;
 
+            string microCeldaFileName = "";
+            string microCeldaFileFullName = "";
+            string microCeldaSheetName = "";
+            FileInfo microCeldaFileInfo;
 
             // Se Obtienen el IConfiguración
             var builder = new ConfigurationBuilder()
@@ -52,18 +56,23 @@ namespace PopExplorer_Desktop
             sitioBajaAlturaFileFullName = $"{filePath}\\{sitioBajaAlturaFileName}";
             sitioBajaAlturaSheetName = configuration.GetSection("ReportePopInfo:BajaAltura:SheetName").Value;
 
+            microCeldaFileName = configuration.GetSection("ReportePopInfo:MicroCelda:FileName").Value;
+            microCeldaFileFullName = $"{filePath}\\{microCeldaFileName}";
+            microCeldaSheetName = configuration.GetSection("ReportePopInfo:MicroCelda:SheetName").Value;
+
             // Se coloca las conidiciones iniciales
             popFileInfo = new FileInfo(popFileFullName);
             sitioBajaAlturaFileInfo = new FileInfo(sitioBajaAlturaFileFullName);
+            microCeldaFileInfo = new FileInfo(microCeldaFileFullName);
 
             // Se Inicializa el AppData
-            AppData.Inicializar(popFileInfo,popSheetName, sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName);
+            AppData.Inicializar(popFileInfo,popSheetName, sitioBajaAlturaFileInfo, sitioBajaAlturaSheetName,microCeldaFileInfo,microCeldaSheetName);
 
             // Se coloca los datos del autor
             AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "+51998102147");
 
             // Se coloca los datos de la version
-            AppData.AppVersionInfo = new AppVersionInfo("v1.8", new DateTime(2023, 05, 02));
+            AppData.AppVersionInfo = new AppVersionInfo("v1.9", new DateTime(2023, 05, 04));
 
         }
     }

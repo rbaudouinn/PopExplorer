@@ -13,7 +13,7 @@ namespace PopExplorer_Desktop.ViewModels
     public partial class PopViewModel : ObservableValidator, IBaseViewModel
     {
         [ObservableProperty]
-        public Pop currentPop;
+        public Pop currentPop = new Pop("Pop");
                 
         public void Inicializar(IRanNetworkElement runNetworkElement)
         {
