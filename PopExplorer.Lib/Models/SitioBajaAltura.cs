@@ -38,6 +38,7 @@ namespace PopExplorer.Lib.Models
         public string ProveedorDeMantenimiento { get; set; }
         public string Consideraciones { get; set; }
         public string SitioContingente { get; set; }
+        public DateOnly? FechaOnAir { get; set; }
 
         // Propiedades calculadas
         public string DepartamentoProvinciaDistrito { get => $"{Departamento.ToUpper()} / {Provincia.ToUpper()} / {Distrito.ToUpper()}"; }
@@ -49,7 +50,7 @@ namespace PopExplorer.Lib.Models
                                string coberturaPrincipal, string tipoCoberturaPrincipal, string compromisoRegulatorio, string bandaRegulatorio, string tipoTorre, 
                                double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadoEn, string ubicacionDeEquipo, 
                                string tipoProyecto, string tipoSolucion, string region, string supervisor, string coordinador, 
-                               string proveedorDeMantenimiento, string consideraciones, string sitioContingente)
+                               string proveedorDeMantenimiento, string consideraciones, string sitioContingente, DateOnly? fechaOnAir)
         {
             NetworkElementType = networkElementType;
             Nombre = nombre;
@@ -80,6 +81,7 @@ namespace PopExplorer.Lib.Models
             ProveedorDeMantenimiento = proveedorDeMantenimiento;
             Consideraciones = consideraciones;
             SitioContingente = sitioContingente;
+            FechaOnAir = fechaOnAir;
         }
 
         public SitioBajaAltura()

@@ -57,7 +57,7 @@ namespace PopExplorer.Lib.DataAccess
             string tipoTorre; double alturaTorre; string tipoEstacion; double alturaEdificacion; string coubicadorFinal; 
             string nombreSitioCoubicador; string operadorCoubicado; string nombreSitioCoubicante; string codigoCoubicador; 
             string ubicacionEquipos; string agregador; string preAgregador; string proveedorDeMantenimiento; string accesoLibre24h; 
-            int serviciosGul; int serviciosBafi; string region; string supervisor; string coordinador;
+            int serviciosGul; int serviciosBafi; string region; string supervisor; string coordinador; DateOnly? fechaOnAir;
 
             // Se abre el archivo excel.
             sLDocument = new SLDocument(FileInfo.FullName,SheetName);
@@ -131,12 +131,36 @@ namespace PopExplorer.Lib.DataAccess
                 supervisor = sLDocument.GetCellValueAsString(i + 2, 98);
                 coordinador = sLDocument.GetCellValueAsString(i + 2, 99);
 
+                // Fechas
+                auxiliar = sLDocument.GetCellValueAsString(i+2,54);
+                fechaOnAir = GetDateFromText(auxiliar);
+
                 pop = new Pop(NetworkElementType, nombre, estado, prioridad, tipoClienteFija, sitioBafi, clienteAltoValor, direccion, departamento, provincia, distrito, zona,
                               latitud, longitud, tipoTorre, alturaTorre, tipoEstacion, alturaEdificacion, coubicadorFinal, nombreSitioCoubicador,
                               operadorCoubicado, nombreSitioCoubicante, codigoCoubicador, ubicacionEquipos, agregador, preAgregador, proveedorDeMantenimiento,
-                              accesoLibre24h, serviciosGul, serviciosBafi, region, supervisor, coordinador);
+                              accesoLibre24h, serviciosGul, serviciosBafi, region, supervisor, coordinador, fechaOnAir);
                 Pops.Add(pop);
             }
+        }
+
+        private DateOnly? GetDateFromText(string text)
+        {
+            DateOnly? output;
+            DateOnly dateOnly;
+            bool flag;
+
+            flag = DateOnly.TryParseExact(text, "dd/MM/yyyy", out dateOnly);
+
+            if (flag == true)
+            {
+                output = (DateOnly?) dateOnly;
+            }
+            else
+            {
+                output = null;
+            }
+
+            return output;
         }
 
         private void EscribirLog(string mensaje)

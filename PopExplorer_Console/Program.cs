@@ -19,7 +19,7 @@ namespace PopExplorer_Console
 
             PopDataAccess popDataAccess;
 
-            popDataAccess = new PopDataAccess(fileInfo, "Site POP");
+            //popDataAccess = new PopDataAccess(fileInfo, "Site POP",networkElementType.);
 
         }
     }

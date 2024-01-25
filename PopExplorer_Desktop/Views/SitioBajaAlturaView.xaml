@@ -41,7 +41,7 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+            <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                      Text="{Binding CurrentSitioBajaAltura.Nombre, Mode=Default}"
                      materialDesign:HintAssist.Hint="{Binding CurrentSitioBajaAltura.NetworkElementType, Mode=Default}" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -60,7 +60,7 @@
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
 
-            <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"
+            <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1"
                      Text="{Binding CurrentSitioBajaAltura.Estado, Mode=Default}"
                      materialDesign:HintAssist.Hint="Estado" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
@@ -78,6 +78,26 @@
                      TextAlignment="Left"
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
+
+            <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"
+                     Text="{Binding CurrentSitioBajaAltura.FechaOnAir, Mode=Default}"
+                     materialDesign:HintAssist.Hint="Fecha OnAir" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     DockPanel.Dock="Left" 
+                     HorizontalAlignment="Stretch"
+                     FontFamily="Century Gothic"
+                     FontWeight="Normal"
+                     FontSize="14"
+                     Foreground="#0066C5"                           
+                     Width="auto"
+                     MinWidth="50"
+                     Height="auto"
+                     Margin="5"
+                     Padding="5"
+                     TextAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsReadOnly="True"/>
+
 
             <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                      Text="{Binding CurrentSitioBajaAltura.Coordinador, Mode=Default}"

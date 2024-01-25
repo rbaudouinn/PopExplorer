@@ -42,6 +42,7 @@ namespace PopExplorer.Lib.Models
         public string Region { get; set; }
         public string Supervisor { get; set; }
         public string Coordinador { get; set; }
+        public DateOnly? FechaOnAir { get; set; }
 
         // Propiedades calculadas
         public string Servicios { get => ObtenerServicios();}
@@ -55,7 +56,7 @@ namespace PopExplorer.Lib.Models
         public Pop(string networkElementType, string nombre, string estado, string prioridad, string tipoClienteFija, string sitioBafi, string clienteAltoValor, string direccion, string departamento, string provincia, string distrito, string zona,
                    double latitud, double longitud, string tipoTorre, double alturaTorre, string tipoEstacion, double alturaEdificacion, string coubicadorFinal, string nombreSitioCoubicador,
                    string operadorCoubicado, string nombreSitioCoubicante, string codigoCoubicador, string ubicacionEquipos, string agregador, string preAgregador, string proveedorDeMantenimiento,
-                   string accesoLibre24h, int serviciosGul, int serviciosBafi, string region, string supervisor, string coordinador)
+                   string accesoLibre24h, int serviciosGul, int serviciosBafi, string region, string supervisor, string coordinador, DateOnly? fechaOnAir)
         {
             NetworkElementType = networkElementType;
             Nombre = nombre;
@@ -90,7 +91,7 @@ namespace PopExplorer.Lib.Models
             Region = region;
             Supervisor = supervisor;
             Coordinador = coordinador;
-            
+            FechaOnAir = fechaOnAir;
         }
 
         public Pop()
@@ -128,6 +129,7 @@ namespace PopExplorer.Lib.Models
             Region = "";
             Supervisor = "";
             Coordinador = "";
+            FechaOnAir = null;
         }
 
         public Pop(string networkElementType)
@@ -165,6 +167,7 @@ namespace PopExplorer.Lib.Models
             Region = "";
             Supervisor = "";
             Coordinador = "";
+            FechaOnAir = null;
         }
 
 

@@ -1,4 +1,6 @@
-﻿using MyExcelLib;
+﻿using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Spreadsheet;
+using MyExcelLib;
 using PopExplorer.Lib.Models;
 using SpreadsheetLight;
 using System;
@@ -50,6 +52,7 @@ namespace PopExplorer.Lib.DataAccess
             SLDocument sLDocument;
             int numberOfRows;
             int i;
+            int columNIndex;
             string auxiliar;
             bool flagNumberParse;
             SitioBajaAltura sitioBajaAltura;
@@ -59,7 +62,7 @@ namespace PopExplorer.Lib.DataAccess
             string coberturaPrincipal; string tipoCoberturaPrincipal; string compromisoRegulatorio; string bandaRegulatorio; string tipoTorre;
             double alturaTorre; string tipoEstacion; double alturaEdificacion; string coubicadoEn; string ubicacionDeEquipo;
             string tipoProyecto; string tipoSolucion; string region; string supervisor; string coordinador;
-            string proveedorDeMantenimiento; string consideraciones; string sitioContingente;
+            string proveedorDeMantenimiento; string consideraciones; string sitioContingente; DateOnly? fechaOnAir;
 
             // Se abre el archivo excel.
             sLDocument = new SLDocument(FileInfo.FullName, SheetName);
@@ -118,16 +121,42 @@ namespace PopExplorer.Lib.DataAccess
                 consideraciones = sLDocument.GetCellValueAsString(i + 2, 36);
                 sitioContingente = sLDocument.GetCellValueAsString(i + 2, 37);
 
+                // Fechas
+                columNIndex = RbExcel.EncontaraColumna(sLDocument, "Fecha On Air", 1, 100);
+                auxiliar = sLDocument.GetCellValueAsString(i + 2, columNIndex);
+                fechaOnAir = GetDateFromText(auxiliar);
+
                 sitioBajaAltura = new SitioBajaAltura(NetworkElementType,nombre, sitioAncla, estado, prioridad, direccion,
                                                       departamento, provincia, distrito, latitud, longitud,
                                                       coberturaPrincipal, tipoCoberturaPrincipal, compromisoRegulatorio, bandaRegulatorio, tipoTorre,
                                                       alturaTorre, tipoEstacion, alturaEdificacion, coubicadoEn, ubicacionDeEquipo,
                                                       tipoProyecto, tipoSolucion, region, supervisor, coordinador,
-                                                      proveedorDeMantenimiento, consideraciones, sitioContingente);
+                                                      proveedorDeMantenimiento, consideraciones, sitioContingente, fechaOnAir);
                 SitiosBajaAltura.Add(sitioBajaAltura);
             }
 
         }
+
+        private DateOnly? GetDateFromText(string text)
+        {
+            DateOnly? output;
+            DateOnly dateOnly;
+            bool flag;
+
+            flag = DateOnly.TryParseExact(text, "dd/MM/yyyy", out dateOnly);
+
+            if (flag == true)
+            {
+                output = (DateOnly?)dateOnly;
+            }
+            else
+            {
+                output = null;
+            }
+
+            return output;
+        }
+
 
         private void EscribirLog(string mensaje)
         {
