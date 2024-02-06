@@ -84,7 +84,7 @@ namespace PopExplorer_Desktop
             AppData.AuthorInfo = new AuthorInfo("Renato", "Baudouin", "renato.baudouin@entel.pe", "+51998102147");
 
             // Se coloca los datos de la version
-            AppData.AppVersionInfo = new AppVersionInfo("v2.0", new DateTime(2024, 01, 24));
+            AppData.AppVersionInfo = new AppVersionInfo("v2.1", new DateTime(2024, 02, 06));
 
         }
     }
