@@ -37,6 +37,12 @@ namespace PopExplorer.Lib.Models
         public string ConsideracionesDeAcceso { get; set; }
         public string ProveedorDeMantenimiento { get; set; }
 
+        // Propiedades calculadas        
+        public string DepartamentoProvinciaDistrito { get => $"{Departamento.ToUpper()} / {Provincia.ToUpper()} / {Distrito.ToUpper()}"; }
+        public string ContratistaDepartamentoProvinciaDistrito { get => $"{ProveedorDeMantenimiento} - {DepartamentoProvinciaDistrito}"; }
+        public string LatitudLongitud { get => $"{Latitud}, {Longitud}"; }
+
+
         public SmallCell(string networkElementType, string nombre, string estado, string prioridad, string direccion, string departamento, string provincia, string distrito, double latitud, double longitud, 
                          string numeroImsi, string numeroDeGestion, string ipGestion, string tipoDeSite, string razonSocial, string region, string supervisor, string coordinador, DateOnly? fechaOnAir, 
                          string siteServidor, string pisoDeAntenaDonadora, string tipoDeTransmision, string tipoPredio, string nombreDeContacto, string numeroDeContacto, string consideracionesDeAcceso, 
