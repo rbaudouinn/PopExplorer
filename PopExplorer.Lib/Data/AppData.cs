@@ -21,6 +21,10 @@ namespace PopExplorer.Lib.Data
         static public List<SitioBajaAltura> MicroCeldas { get; set; }
         static public FileInfo MicroCeldaFileInfo { get; set; }
 
+        static public List<SmallCell> SmallCells { get; set; }
+        static public FileInfo SmallCellFillInfo { get; set; }
+
+
         static public List<IRanNetworkElement> RanNetworkElements { get; set; }
 
         static public AuthorInfo AuthorInfo { get; set; }
@@ -28,12 +32,14 @@ namespace PopExplorer.Lib.Data
 
         static public void Inicializar(FileInfo popFileInfo,string popSheetName, 
                                        FileInfo sitioBajaAlturaFileInfo, string sitioBajaAlturaSheetName,
-                                       FileInfo microCeldaFileInfo, string microCeldaSheetName)
+                                       FileInfo microCeldaFileInfo, string microCeldaSheetName,
+                                       FileInfo smallCellFileInfo, string smallCellSheetName)
         {
             // Definición de variables
             PopDataAccess popDataAccess;
             SitioBajaAlturaDataAccess sitioBajaAlturaDataAccess;
             SitioBajaAlturaDataAccess microCeldaDataAccess;
+            SmallCellDataAccess smallCellDataAccess;
 
             // Condiciones iniciales
             PopFileInfo = popFileInfo;
@@ -49,6 +55,10 @@ namespace PopExplorer.Lib.Data
 
             microCeldaDataAccess = new SitioBajaAlturaDataAccess(microCeldaFileInfo, microCeldaSheetName, "Micro Celda");
             MicroCeldas = microCeldaDataAccess.SitiosBajaAltura;
+
+            smallCellDataAccess = new SmallCellDataAccess(smallCellFileInfo, smallCellSheetName, "Small Cell");
+            SmallCells = smallCellDataAccess.SmallCells;
+
 
             // Se obtiene la lista RanNetworkElements
             ObtenerListaRanNetworkElements();
@@ -73,6 +83,12 @@ namespace PopExplorer.Lib.Data
 
             // Se llena la lista con información de Micro Celdas
             foreach (var item in MicroCeldas)
+            {
+                RanNetworkElements.Add(item);
+            }
+
+            // Se llena la lista con informaciön de Small Cells
+            foreach (var item in SmallCells)
             {
                 RanNetworkElements.Add(item);
             }

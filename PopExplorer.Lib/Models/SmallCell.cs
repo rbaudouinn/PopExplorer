@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace PopExplorer.Lib.Models
 {
     public class SmallCell : IRanNetworkElement
-    {
-        
-
+    {      
         public string NetworkElementType { get ; set ; }
         public string Nombre { get ; set ; }
         public string Estado { get ; set ; }
