@@ -66,12 +66,17 @@ namespace PopExplorer_Desktop.ViewModels
             if (CurrentRanNetworkElement is Pop pop)
             {
                 SelectedViewModel = new PopViewModel();
-                ((PopViewModel)SelectedViewModel).Inicializar(CurrentRanNetworkElement);
+                ((PopViewModel) SelectedViewModel).Inicializar(CurrentRanNetworkElement);
             }
             else if (CurrentRanNetworkElement is SitioBajaAltura sitioBajaAltura)
             {
                 SelectedViewModel = new SitioBajaAlturaViewModel();
-                ((SitioBajaAlturaViewModel)SelectedViewModel).CurrentSitioBajaAltura = sitioBajaAltura;
+                ((SitioBajaAlturaViewModel) SelectedViewModel).CurrentSitioBajaAltura = sitioBajaAltura;
+            }
+            else if (CurrentRanNetworkElement is SmallCell smallCell)
+            {
+                SelectedViewModel = new SmallCellViewModel();
+                ((SmallCellViewModel) SelectedViewModel).CurrentSmallCell = smallCell;
             }
         }
 

@@ -19,10 +19,16 @@
             <DataTemplate DataType="{x:Type viewModels:PopViewModel}">
                 <views:PopView/>
             </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewModels:SitioBajaAlturaViewModel}">
                 <views:SitioBajaAlturaView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModels:SmallCellViewModel}">
+                <views:SmallCellView/>
+            </DataTemplate>
+
+
             <!-- primary -->
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#00B8EA"/>
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FFFFFF"/>

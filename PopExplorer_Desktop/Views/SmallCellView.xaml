@@ -39,8 +39,8 @@
             </Grid.RowDefinitions>
 
             <TextBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.Nombre, Mode=Default}"
-             materialDesign:HintAssist.Hint="{Binding CurrentPop.NetworkElementType, Mode=Default}" 
+             Text="{Binding CurrentSmallCell.Nombre, Mode=Default}"
+             materialDesign:HintAssist.Hint="{Binding CurrentSmallCell.NetworkElementType, Mode=Default}" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
              HorizontalAlignment="Stretch"
@@ -58,7 +58,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.Estado, Mode=Default}"
+             Text="{Binding CurrentSmallCell.Estado, Mode=Default}"
              materialDesign:HintAssist.Hint="Estado" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -77,7 +77,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.FechaOnAir, Mode=Default, StringFormat='dd/MM/yyyy'}"
+             Text="{Binding CurrentSmallCell.FechaOnAir, Mode=Default, StringFormat='dd/MM/yyyy'}"
              materialDesign:HintAssist.Hint="Fecha OnAir" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -96,7 +96,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.Coordinador, Mode=Default}"
+             Text="{Binding CurrentSmallCell.Coordinador, Mode=Default}"
              materialDesign:HintAssist.Hint="Coordinador" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -115,7 +115,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.Supervisor, Mode=Default}"
+             Text="{Binding CurrentSmallCell.Supervisor, Mode=Default}"
              materialDesign:HintAssist.Hint="Supervisor" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -134,7 +134,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.SiteServidor, Mode=Default}"
+             Text="{Binding CurrentSmallCell.SiteServidor, Mode=Default}"
              materialDesign:HintAssist.Hint="Site Servidor" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -153,7 +153,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.PisoDeAntenaDonadora, Mode=Default}"
+             Text="{Binding CurrentSmallCell.PisoDeAntenaDonadora, Mode=Default}"
              materialDesign:HintAssist.Hint="Piso Antena Servidora" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -172,7 +172,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.TipoDeTransmision, Mode=Default}"
+             Text="{Binding CurrentSmallCell.TipoDeTransmision, Mode=Default}"
              materialDesign:HintAssist.Hint="Tipo de transmisión" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -191,7 +191,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.NumeroImsi, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.NumeroImsi, Mode=OneWay}"
              materialDesign:HintAssist.Hint="IMSI" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -210,7 +210,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.NumeroDeGestion, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.NumeroDeGestion, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Numero de Gestión" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -229,7 +229,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.IpGestion, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.IpGestion, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Ip Gestion" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -248,7 +248,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.RazonSocial, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.RazonSocial, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Razon Social" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -269,7 +269,7 @@
 
 
             <TextBox Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.ProveedorDeMantenimiento, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.ProveedorDeMantenimiento, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Contrata" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -288,7 +288,7 @@
              IsReadOnly="True"/>
 
              <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
-             Text="{Binding CurrentPop.DepartamentoProvinciaDistrito, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.DepartamentoProvinciaDistrito, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Dep / Prov / Dist" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -307,7 +307,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
-             Text="{Binding CurrentPop.Direccion, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.Direccion, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Dirección" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -326,7 +326,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.Latitud, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.Latitud, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Latitud" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -345,7 +345,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.Longitud, Mode=OneWay}"
+             Text="{Binding CurrentSmallCell.Longitud, Mode=OneWay}"
              materialDesign:HintAssist.Hint="Longitud" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -364,7 +364,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.LatitudLongitud, Mode=OneWay}" 
+             Text="{Binding CurrentSmallCell.LatitudLongitud, Mode=OneWay}" 
              materialDesign:HintAssist.Hint="Latitud,Longitud" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -383,7 +383,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.TipoPredio, Mode=OneWay}" 
+             Text="{Binding CurrentSmallCell.TipoPredio, Mode=OneWay}" 
              materialDesign:HintAssist.Hint="Tipo de Predio" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -402,7 +402,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"
-             Text="{Binding CurrentPop.NombreDeContacto, Mode=OneWay}" 
+             Text="{Binding CurrentSmallCell.NombreDeContacto, Mode=OneWay}" 
              materialDesign:HintAssist.Hint="Nombre de Contacto" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -421,7 +421,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="1"
-             Text="{Binding CurrentPop.NumeroDeContacto, Mode=OneWay}" 
+             Text="{Binding CurrentSmallCell.NumeroDeContacto, Mode=OneWay}" 
              materialDesign:HintAssist.Hint="Número de contacto" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
@@ -440,7 +440,7 @@
              IsReadOnly="True"/>
 
             <TextBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="4"
-             Text="{Binding CurrentPop.ConsideracionesDeAcceso, Mode=OneWay}" 
+             Text="{Binding CurrentSmallCell.ConsideracionesDeAcceso, Mode=OneWay}" 
              materialDesign:HintAssist.Hint="Consideraciones de acceso" 
              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
              DockPanel.Dock="Left" 
