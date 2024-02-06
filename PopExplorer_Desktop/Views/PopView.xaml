@@ -82,7 +82,7 @@
                      VerticalAlignment="Center"
                      IsReadOnly="True"/>
             <TextBox Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"
-                     Text="{Binding CurrentPop.FechaOnAir, Mode=Default}"
+                     Text="{Binding CurrentPop.FechaOnAir, Mode=Default, StringFormat='dd/MM/yyyy'}"
                      materialDesign:HintAssist.Hint="Fecha OnAir" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                      DockPanel.Dock="Left" 

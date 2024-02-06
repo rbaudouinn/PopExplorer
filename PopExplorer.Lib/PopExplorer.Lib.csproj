@@ -7,6 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ExampleFiles\Reporte_BAJA_ALTURA.xlsx" />
+    <None Remove="ExampleFiles\Reporte_MICRO_CELDAS.xlsx" />
+    <None Remove="ExampleFiles\Reporte_Sitio_POP.xlsx" />
+    <None Remove="ExampleFiles\Reporte_SMALL_CELL.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ExampleFiles\Reporte_BAJA_ALTURA.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleFiles\Reporte_MICRO_CELDAS.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleFiles\Reporte_Sitio_POP.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ExampleFiles\Reporte_SMALL_CELL.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
   </ItemGroup>
 
